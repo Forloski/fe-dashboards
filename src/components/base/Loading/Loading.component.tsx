@@ -1,21 +1,24 @@
-import * as S from "./Loading.styles";
+import Image from "next/image";
+import LoadingAnimation from "./Loading.animation";
 
 type Props = {
   height: number;
   width: number;
 };
 
-const Loading = (props: Props) => {
+const LoadingBaseComponent = (props: Props) => {
   const { height, width } = props;
 
   return (
-    <S.AnimatedImage
-      src="/PefisaLogo.svg"
-      width={width}
-      height={height}
-      alt="Loading..."
-    />
+    <LoadingAnimation style={{ height, width }}>
+      <Image
+        src="/PefisaLogo.svg"
+        width={width}
+        height={height}
+        alt="Loading..."
+      />
+    </LoadingAnimation>
   );
 };
 
-export default Loading;
+export default LoadingBaseComponent;
