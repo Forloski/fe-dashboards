@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, TargetAndTransition } from "framer-motion";
 
 type Props = {
   style: {
@@ -11,7 +11,7 @@ type Props = {
 const LoadingAnimation = (props: Props) => {
   const { style, children } = props;
 
-  const rotationAnimation = {
+  const rotate: TargetAndTransition = {
     rotateY: 360,
     transition: {
       rotateY: {
@@ -24,7 +24,7 @@ const LoadingAnimation = (props: Props) => {
   };
 
   return (
-    <motion.div style={style} animate={rotationAnimation}>
+    <motion.div style={style} animate={rotate}>
       {children}
     </motion.div>
   );

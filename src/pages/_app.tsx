@@ -1,9 +1,15 @@
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import { theme, createThemeCache } from "../theme";
+import {
+  CacheProvider as EmotionCacheProvider,
+  css,
+  EmotionCache,
+} from "@emotion/react";
+import { createThemeCache } from "../theme";
+import { ToggleThemeProvider } from "../theme/hooks/toggleTheme.context";
+import { ThemeProvider as NextThemeProvider, useTheme } from "next-themes";
+import { GlobalStyles } from "@mui/material";
 
 const clientSideEmotionCache = createThemeCache();
 
@@ -13,15 +19,35 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const { resolvedTheme, setTheme, theme } = useTheme();
+
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
+    <NextThemeProvider>
+      <EmotionCacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ToggleThemeProvider>
+          <CssBaseline />
+          <GlobalStyles
+            styles={css`
+              :root {
+                body {
+                  background-color: #fafafa;
+                  color: #121212;
+                }
+              }
+              [data-theme="dark"] {
+                body {
+                  background-color: #121212;
+                  color: #fafafa;
+                }
+              }
+            `}
+          />
+          <Component {...pageProps} />
+        </ToggleThemeProvider>
+      </EmotionCacheProvider>
+    </NextThemeProvider>
   );
 }

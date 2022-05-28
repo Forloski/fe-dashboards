@@ -13,8 +13,8 @@ const LoadingBaseComponent = (props: Props) => {
     <LoadingAnimation style={{ height, width }}>
       <Image
         src="/PefisaLogo.svg"
-        width={width}
         height={height}
+        width={width}
         alt="Loading..."
       />
     </LoadingAnimation>
