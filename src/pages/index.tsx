@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { LoginScene } from "../components/scenes/Login";
 
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   return (
     <div>
       <Head>
@@ -16,4 +16,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Login;
