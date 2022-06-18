@@ -1,12 +1,14 @@
 import { createTheme } from "@mui/material/styles";
 import { PaletteMode } from "@mui/material";
-import { themePalette } from "./themeObjects/themePalette";
-import { themeComponents } from "./themeObjects/themeComponents";
+import { createThemePalette } from "./createThemeObjects/createThemePalette";
+import { createThemeComponents } from "./createThemeObjects/createThemeComponents";
+import { themeBreakpointsOptions } from "./createThemeObjects/createThemeBreakpoints";
 
 const createThemeWithMode = (themeMode?: PaletteMode) => {
   return createTheme({
-    palette: themePalette(themeMode),
-    components: themeComponents(),
+    palette: createThemePalette(themeMode),
+    components: createThemeComponents(),
+    breakpoints: themeBreakpointsOptions,
   });
 };
 

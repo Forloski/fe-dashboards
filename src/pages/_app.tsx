@@ -7,7 +7,6 @@ import { createThemeCache } from "../theme";
 import { ToggleThemeProvider } from "../theme/contexts/toggleTheme.context";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 import { GlobalStyles } from "@mui/material";
-import { useState } from "react";
 
 const clientSideEmotionCache = createThemeCache();
 
@@ -17,7 +16,6 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const [interval, setInterval] = useState(0);
 
   return (
     <SessionProvider session={pageProps.session} refetchInterval={60 * 10}>

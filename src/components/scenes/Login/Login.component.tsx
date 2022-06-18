@@ -1,6 +1,6 @@
 import { Box, Paper } from "@mui/material";
 import Image from "next/image";
-import { ToggleThemeBtn } from "components/molecules/ToggleThemeBtn";
+import { ToggleThemeBtn } from "components/group/ToggleThemeBtn";
 import LoginAnimation from "./Login.animation";
 import { flexCenterContent } from "utils/cssInJsBlocks/flexCenterContent";
 import { LoginForm } from "./components/LoginForm";

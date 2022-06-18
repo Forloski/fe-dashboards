@@ -1,6 +1,6 @@
 import { Button, ButtonTypeMap, Grid, GridTypeMap } from "@mui/material";
 import { flexCenterContent } from "utils/cssInJsBlocks/flexCenterContent";
-import { useFormComponents } from "./hooks/FormComponents.context";
+import { useFormComponents } from "./context/FormComponents.context";
 
 type Props = {
   children: React.ReactNode;

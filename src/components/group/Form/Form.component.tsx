@@ -1,7 +1,7 @@
 import { Grid, GridTypeMap } from "@mui/material";
 import { FormProvider, UseFormReturn } from "react-hook-form";
 import { flexCenterContent } from "utils/cssInJsBlocks/flexCenterContent";
-import { FormComponentsProvider } from "./hooks/FormComponents.context";
+import { FormComponentsProvider } from "./context/FormComponents.context";
 import FormSubmitBtn from "./FormSubmitBtn.component";
 import FormTextInput from "./FormTextInput.component";
 

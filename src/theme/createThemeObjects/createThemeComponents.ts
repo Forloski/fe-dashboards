@@ -1,6 +1,6 @@
-import { Components } from "@mui/material";
+import { Components, Theme } from "@mui/material";
 
-export const themeComponents = (): Components => {
+export const createThemeComponents = (): Components<Theme> => {
   return {
     MuiTextField: {
       defaultProps: {

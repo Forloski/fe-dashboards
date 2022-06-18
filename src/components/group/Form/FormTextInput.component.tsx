@@ -1,7 +1,7 @@
 import { Grid, GridTypeMap, TextField, TextFieldProps } from "@mui/material";
 import { useFormContext } from "react-hook-form";
 import { flexCenterContent } from "utils/cssInJsBlocks/flexCenterContent";
-import { useFormComponents } from "./hooks/FormComponents.context";
+import { useFormComponents } from "./context/FormComponents.context";
 
 type Props = {
   id: string;

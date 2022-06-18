@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+WORK IN PROGRESS DONT JUDGE ME
 
-## Getting Started
+Components are divided in 5 levels, following atomic design (i hate their naming system so i changed it)
 
-First, run the development server:
+Base - Are the most basic components, 99% of the time they don't have state and come from MUI.
+Group - Is a group of base components, most of they time they interact with one another and need states.
+Block - Is a block of groups and base components that is used on a page and have some meaningful usage.
+Template - Is most of the time a grouping of blocks to form the structure of our page.
+Scenes - Is where the gaps in the template are filled with other components, most of the time blocks. (our page folders is actually our router to keep with Nextjs syntax)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This hierarchy is also used to control how we import components around too.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Scenes > Template > Block > Group > Base
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Components can't import other components that are higher or at same level as himself. This is done to avoid circular dependencies and help out with keeping the codebase decoupled.
